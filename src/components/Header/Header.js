@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate, useLocation } from 'react-router'
 import {
   AppBar,
   Toolbar,
@@ -19,6 +19,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const navigate = useNavigate()
+  const location = useLocation()
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -30,6 +33,15 @@ const Header = () => {
     }
   }, [])
 
+  const handleLogoClick = (e) => {
+    e.preventDefault()
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      navigate('/')
+    }
+  }
+
   return (
     <AppBar
       position="fixed"
@@ -38,18 +50,18 @@ const Header = () => {
     >
       <Toolbar className="header__nav">
         <Box className="header__logo">
-          <Link to="/">
+          <a href="/" onClick={handleLogoClick}>
             <img src={logoHeader} alt="Aironpage" loading="lazy" />
-          </Link>
+          </a>
         </Box>
 
         {/* Desktop Menu */}
         <Box className="header__menu">
           <Button component={Link} to="/" className="header__menu-link">
-            Home
+            About me
           </Button>
-          <Button component={Link} to="/products" className="header__menu-link">
-            Products
+          <Button component={Link} to="/widgets" className="header__menu-link">
+            Widgets
           </Button>
           <Button component={Link} to="/services" className="header__menu-link">
             Services
@@ -83,11 +95,11 @@ const Header = () => {
           }}
         >
           <List className="header__mobile-menu">
-            {['Home', 'Products', 'Services', 'Pricing', 'Contact'].map((text, index) => (
+            {['About me', 'Widgets', 'Services', 'Pricing', 'Contact'].map((text, index) => (
               <ListItem key={index} disablePadding>
                 <ListItemButton
                   component={Link}
-                  to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}
+                  to={text === 'About me' ? '/' : `/${text.toLowerCase()}`}
                   onClick={() => setMenuOpen(false)}
                   className="header__menu-link"
                 >

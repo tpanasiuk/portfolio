@@ -1,6 +1,6 @@
-@use "src/styles/variables" as *;
-@use "src/styles/mixins" as *;
-@use "src/styles/typography" as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/mixins' as *;
+@use 'src/styles/typography' as *;
 
 .breeds {
   @include content-container(lg);
@@ -20,7 +20,9 @@
       font-size: $h1-size;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 
       &.is-visible {
         opacity: 1;
@@ -54,7 +56,9 @@
       border-radius: $border-radius;
       box-shadow: $shadow--medium;
       margin-block: 20px;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
       width: 400px;
     }
 

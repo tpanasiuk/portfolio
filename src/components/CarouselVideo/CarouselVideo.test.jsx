@@ -25,7 +25,6 @@ beforeEach(() => {
   }
 })
 
-
 describe('VideoCarousel component', () => {
   it('renders the section heading', () => {
     render(<VideoCarousel />)

@@ -38,7 +38,6 @@ describe('Header component', () => {
 
     const mobileLink = screen.getByRole('link', { name: /Products/i })
     fireEvent.click(mobileLink)
-
   })
 
   it('adds scrolled class on scroll', () => {

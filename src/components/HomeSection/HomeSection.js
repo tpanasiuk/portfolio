@@ -31,8 +31,8 @@ const Home = () => {
 
       <div className="home__overlay"></div>
       <div className="home__content">
-        <h1 className="home__content-title">Digital Product Agency.</h1>
-        <p className="home__content-summary">Look no further. You came to the right ... place</p>
+        <h1 className="home__content-title">Tetiana Panasiuk</h1>
+        <p className="home__content-summary">Frontend Developer</p>
       </div>
     </section>
   )

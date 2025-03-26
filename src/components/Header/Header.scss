@@ -77,15 +77,15 @@
     }
 
     &:focus-visible {
-        outline: 2px solid $color--primary;
+      outline: 2px solid $color--primary;
+      background: transparent;
+      background-color: transparent;
+
+      span {
         background: transparent;
         background-color: transparent;
-
-span {
-    background: transparent;
-    background-color: transparent;
+      }
     }
-        }
   }
 
   &__mobile-menu {
@@ -121,21 +121,21 @@ span {
 
       .header__menu-link {
         &:hover,
-         &:focus,
-         &:focus-visible {
+        &:focus,
+        &:focus-visible {
           color: $color--primary;
         }
       }
     }
 
     &__logo {
-        padding-block: 5px;
+      padding-block: 5px;
 
-        img {
-              height: 80px;
-              width: auto;
-            }
-        }
+      img {
+        height: 80px;
+        width: auto;
+      }
+    }
 
     &__menu {
       display: flex;

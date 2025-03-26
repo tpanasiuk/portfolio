@@ -3,15 +3,6 @@
 @use 'src/styles/typography' as *;
 
 .video-carousel {
-     opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-
-      &.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
   &__container {
     @include content-container(lg);
     @include padding-block;

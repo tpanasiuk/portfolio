@@ -15,7 +15,7 @@ const DogBreedsGallery = () => {
       try {
         const res = await fetch('https://api.thedogapi.com/v1/breeds', {
           headers: {
-            'x-api-key': "live_IHEmwCh8ROyNDDf8GvugLJt3EgbaNVJC9LzWrnsHQEkS4w08jYM5DFbyzPECobqY",
+            'x-api-key': 'live_IHEmwCh8ROyNDDf8GvugLJt3EgbaNVJC9LzWrnsHQEkS4w08jYM5DFbyzPECobqY',
           },
         })
         const data = await res.json()
@@ -38,7 +38,7 @@ const DogBreedsGallery = () => {
 
       {loading ? (
         <div className="breeds__loader">
-          <CircularProgress className="breeds__spinner"/>
+          <CircularProgress className="breeds__spinner" />
         </div>
       ) : (
         <Swiper

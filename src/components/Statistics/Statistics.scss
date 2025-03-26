@@ -1,6 +1,6 @@
-@use "src/styles/mixins" as *;
-@use "src/styles/variables" as *;
-@use "src/styles/typography" as *;
+@use 'src/styles/mixins' as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/typography' as *;
 
 .statistics {
   @include padding-block;
@@ -28,6 +28,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     gap: 20px;
     width: 100%;
   }

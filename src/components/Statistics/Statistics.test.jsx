@@ -20,7 +20,9 @@ describe('Statistics component', () => {
 
   it('renders all statistic items', () => {
     render(<Statistics />)
-    const statItems = screen.getAllByText(/Dedicated employees|global community|Award-winning|updates and improvements/i)
+    const statItems = screen.getAllByText(
+      /Dedicated employees|global community|Award-winning|updates and improvements/i
+    )
     expect(statItems).toHaveLength(4)
   })
 

@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from "react-router";
+import { Link } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookF, faInstagram, faYoutube, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
+  faWhatsapp,
+} from '@fortawesome/free-brands-svg-icons'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './Footer.scss'
@@ -24,39 +29,53 @@ const Footer = () => {
   return (
     <footer className="footer">
       <ToastContainer
-      position="bottom-right"
-       autoClose={4000}
-         closeOnClick
-         pauseOnHover
-         className="toast-container"
-         toastClassName="toast-message"
-       />
+        position="bottom-right"
+        autoClose={4000}
+        closeOnClick
+        pauseOnHover
+        className="toast-container"
+        toastClassName="toast-message"
+      />
 
       <div className="footer__container">
         <div className="footer__top">
           <nav className="footer__nav">
             <ul className="footer__menu">
               <li className="footer__menu-item">
-                <Link to="/" className="footer__menu-link">Home</Link>
+                <Link to="/" className="footer__menu-link">
+                  About me
+                </Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/products" className="footer__menu-link">Products</Link>
+                <Link to="/widgets" className="footer__menu-link">
+                  Widgets
+                </Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/services" className="footer__menu-link">Services</Link>
+                <Link to="/services" className="footer__menu-link">
+                  Services
+                </Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/pricing" className="footer__menu-link">Pricing</Link>
+                <Link to="/pricing" className="footer__menu-link">
+                  Pricing
+                </Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/contact" className="footer__menu-link">Contact</Link>
+                <Link to="/contact" className="footer__menu-link">
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>
 
           <div className="footer__links">
-            <Link to="/privacy" className="footer__link">Privacy Policy</Link>
-            <Link to="/terms" className="footer__link">Terms & Conditions</Link>
+            <Link to="/privacy" className="footer__link">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="footer__link">
+              Terms & Conditions
+            </Link>
           </div>
 
           <div className="footer__newsletter">
@@ -79,22 +98,34 @@ const Footer = () => {
         </div>
 
         <div className="footer__social">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer__social-link">
+          <a
+            href="https://www.linkedin.com/in/tetiana-panasiuk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__social-link"
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a
+            href="https://www.facebook.com/tanya.panasyuk.18/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__social-link"
+          >
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer__social-link">
+          <a
+            href="https://www.instagram.com/tetiana_panasiuk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__social-link"
+          >
             <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer__social-link">
-            <FontAwesomeIcon icon={faYoutube} />
-          </a>
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer__social-link">
-            <FontAwesomeIcon icon={faWhatsapp} />
           </a>
         </div>
 
         <div className="footer__copyright">
-          &copy; {new Date().getFullYear()} Aironpage. All rights reserved.
+          &copy; {new Date().getFullYear()} Tetiana Panasiuk. Frontend Developer.
         </div>
       </div>
     </footer>

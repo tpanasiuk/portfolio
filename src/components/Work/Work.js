@@ -1,87 +1,80 @@
 import React, { useState } from 'react'
 import { Dialog, DialogTitle, DialogContent, IconButton } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
+import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 import './Work.scss'
-import img1 from '../../assets/img/800x400/01.jpg'
-import img2 from '../../assets/img/397x400/01.jpg'
-import img3 from '../../assets/img/397x300/01.jpg'
-import img4 from '../../assets/img/397x300/02.jpg'
-import img5 from '../../assets/img/397x300/03.jpg'
+import img1 from '../../assets/img/work/1.png'
+import img2 from '../../assets/img/work/2.png'
+import img3 from '../../assets/img/work/3.jpg'
+import img4 from '../../assets/img/work/4.png'
+import img5 from '../../assets/img/work/5.png'
 
 const workItems = [
   {
     id: 'work-item-1',
     image: img1,
-    title: 'Art of Coding',
-    subtitle: 'Clean & Minimalistic Design',
+    title: 'Web Developer',
+    subtitle: 'SmartRecruiters · 05.2024 — Present',
     description:
-      'Master the art of coding with modern, minimalist design principles. Our approach ensures that developers work in an efficient and aesthetically pleasing environment, reducing distractions and improving focus.',
+      'Creating and optimizing web components using HTML5, SCSS, JavaScript, TypeScript, and React. Building career websites based on Figma designs and maintaining code quality via unit testing (Vitest, Jest).',
+    techStack: ['React', 'TypeScript', 'SCSS', 'HTML5', 'JavaScript', 'Figma', 'Vitest', 'Jest'],
     details: {
-      leader: 'John Doe',
-      designer: 'Alisa Keys',
-      developer: 'Mark Doe',
-      customer: 'Keenthemes',
+      location: 'Cracow, Poland',
     },
   },
   {
     id: 'work-item-2',
     image: img2,
-    title: 'Modern Architecture',
-    subtitle: 'Innovative Structures',
+    title: 'Software Engineer',
+    subtitle: 'Cornerstone OnDemand · 03.2023 — 04.2024',
     description:
-      'Our modern architectural designs blend functionality with stunning aesthetics. We emphasize sustainable materials, energy-efficient solutions, and smart building technologies to create structures that stand the test of time.',
+      'Developed an application for customized login page management using React, Redux, and TypeScript.',
+    techStack: ['React', 'Redux', 'TypeScript', 'JavaScript', 'CSS'],
     details: {
-      leader: 'Emma Wilson',
-      designer: 'Sophia Lee',
-      developer: 'Chris Adams',
-      customer: 'BuildTech',
+      location: 'Cracow, Poland',
     },
   },
   {
     id: 'work-item-3',
     image: img3,
-    title: 'Interior Design',
-    subtitle: 'Aesthetic Living Spaces',
+    title: 'Associate Software Engineer',
+    subtitle: 'Cornerstone OnDemand · 08.2022 — 03.2023',
     description:
-      'We create interior spaces that are not only visually appealing but also promote comfort and well-being. From minimalist to luxurious styles, our designs reflect personality, taste, and modern-day elegance.',
+      'Created branded web components, customized customer career websites (JavaScript, jQuery), and developed a branding specification management tool using Vue.js and Less.',
+    techStack: ['Vue.js', 'Less', 'JavaScript', 'jQuery', 'HTML', 'CSS'],
     details: {
-      leader: 'Oliver Brown',
-      designer: 'Grace Thomas',
-      developer: 'Ethan Carter',
-      customer: 'DecoStyle',
+      location: 'Cracow, Poland',
     },
   },
   {
     id: 'work-item-4',
     image: img4,
-    title: 'Urban Lifestyle',
-    subtitle: 'Active & Dynamic City Life',
+    title: 'Junior Front Office Developer',
+    subtitle: 'Saba Software · 01.2019 — 07.2020',
     description:
-      'Explore the fast-paced urban lifestyle through a design perspective. Our projects focus on smart city planning, sustainable transportation, and vibrant public spaces that enhance the quality of urban living.',
+      'Configured and styled recruitment platforms, integrated job applications using JavaScript and WordPress. Applied branding guidelines using CSS and Bootstrap for styling.',
+    techStack: ['JavaScript', 'CSS', 'HTML', 'Bootstrap', 'WordPress'],
     details: {
-      leader: 'Daniel Scott',
-      designer: 'Sophia Martinez',
-      developer: 'William Johnson',
-      customer: 'CityVibe',
+      location: 'Cracow, Poland',
     },
   },
   {
     id: 'work-item-5',
     image: img5,
-    title: 'Minimalist Workspaces',
-    subtitle: 'Efficient & Modern',
+    title: 'Customer Service Representative',
+    subtitle: 'Arvato Finance · 02.2017 — 08.2018',
     description:
-      'Our workspace designs prioritize efficiency, clarity, and a clutter-free environment. By using clean lines, natural light, and ergonomic layouts, we create offices that foster productivity and creativity.',
+      'Providing high quality online customer service related to Google Ads, Google Analytics, Google Tag Manager. Planning and maintaining the team schedule to make sure the workflow is followed. Reporting the overall team performance on a daily basis and creating weekly reports',
+    techStack: ['Google Ads', 'Google Analytics', 'Google Tag Manager'],
     details: {
-      leader: 'James Miller',
-      designer: 'Emily White',
-      developer: 'Ryan Anderson',
-      customer: 'WorkspacePro',
+      location: 'Cracow, Poland',
     },
   },
 ]
 
 const Work = () => {
+  const { ref, isVisible } = useScrollFadeIn()
+
   const [openDialog, setOpenDialog] = useState(false)
   const [selectedWork, setSelectedWork] = useState(null)
 
@@ -95,7 +88,8 @@ const Work = () => {
   }
 
   return (
-    <section id="work" className="work">
+    <section ref={ref} className={`work ${isVisible ? 'is-visible' : ''}`}>
+      <h2 className="work__title">Companies I have worked in</h2>
       <div className="work__grid">
         {workItems.map((work) => (
           <div
@@ -118,13 +112,12 @@ const Work = () => {
         ))}
       </div>
 
-      {/* Dialog (Material UI) */}
       <Dialog
-      open={openDialog}
-      onClose={handleCloseDialog}
-      maxWidth="md"
-      disableScrollLock={true}
-      fullWidth
+        open={openDialog}
+        onClose={handleCloseDialog}
+        maxWidth="md"
+        disableScrollLock={true}
+        fullWidth
       >
         {selectedWork && (
           <div className="work__dialog">
@@ -134,9 +127,9 @@ const Work = () => {
                 <p className="work__dialog-subtitle">{selectedWork.subtitle}</p>
               </div>
               <IconButton
-              onClick={handleCloseDialog}
-              aria-label="Close"
-              className="work__dialog-close"
+                onClick={handleCloseDialog}
+                aria-label="Close"
+                className="work__dialog-close"
               >
                 <CloseIcon />
               </IconButton>
@@ -144,25 +137,21 @@ const Work = () => {
             <DialogContent className="work__dialog-content">
               <div className="work__dialog-left">
                 <p className="work__dialog-description">{selectedWork.description}</p>
-                <p className="work__dialog-description">
-                  We focus on delivering projects that blend aesthetics and functionality while
-                  considering sustainability and innovation. Our team ensures that every detail
-                  contributes to a seamless and remarkable experience.
-                </p>
               </div>
               <div className="work__dialog-right">
                 <span>
-                  <strong>Project Leader: </strong> {selectedWork.details.leader}
+                  <strong>Location: </strong> {selectedWork.details.location}
                 </span>
-                <span>
-                  <strong>Designer: </strong> {selectedWork.details.designer}
-                </span>
-                <span>
-                  <strong>Developer: </strong> {selectedWork.details.developer}
-                </span>
-                <span>
-                  <strong>Customer: </strong> {selectedWork.details.customer}
-                </span>
+                <div className="work__dialog-tech">
+                  <strong>Tech Stack:</strong>
+                  <ul className="work__dialog-tags">
+                    {selectedWork.techStack.map((tech, index) => (
+                      <li key={index} className="work__dialog-tag">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </DialogContent>
           </div>

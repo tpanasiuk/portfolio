@@ -1,5 +1,6 @@
 import React from 'react'
 import './Service.scss'
+import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFlask,
@@ -14,47 +15,47 @@ const services = [
   {
     id: 1,
     icon: faFlask,
-    title: 'Art of Coding',
-    text: 'Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor',
+    title: 'Clean & Accessible Code',
+    text: 'I write semantic HTML, accessible components, and follow WCAG guidelines to ensure inclusivity across devices and users.',
   },
   {
     id: 2,
     icon: faTabletAlt,
     title: 'Responsive Design',
-    text: 'Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor',
+    text: 'I develop responsive interfaces using mobile-first CSS and scalable layout techniques for seamless UX across all screen sizes.',
   },
   {
     id: 3,
     icon: faMedal,
-    title: 'Feature Rich',
-    text: 'Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor',
+    title: 'Design Implementation',
+    text: 'I translate Figma designs into pixel-perfect components using React, SCSS, and CSS methodologies like BEM.',
   },
   {
     id: 4,
     icon: faStickyNote,
-    title: 'Useful Documentation',
-    text: 'Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor',
+    title: 'Reusable Components',
+    text: 'I create modular and testable UI components to speed up development and improve maintainability across projects.',
   },
   {
     id: 5,
     icon: faClock,
-    title: 'Fast Delivery',
-    text: 'Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor',
+    title: 'Efficient Delivery',
+    text: 'I follow Agile principles and CI/CD workflows to deliver high-quality code on time and with confidence.',
   },
   {
     id: 6,
     icon: faPlug,
-    title: 'Free Plugins',
-    text: 'Lorem ipsum dolor amet consectetur ut consequat siad esqudiat dolor',
+    title: 'API Integration',
+    text: 'I integrate REST APIs into frontend projects and ensure smooth data flow with robust error handling and clean UX.',
   },
 ]
 
 const Service = () => {
+  const { ref, isVisible } = useScrollFadeIn()
+
   return (
-    <section className="service" aria-labelledby="services-heading">
-      <h2 className="service__heading">
-        Our Services
-      </h2>
+    <section ref={ref} className={`service ${isVisible ? 'is-visible' : ''}`}>
+      <h2 className="service__heading">My Frontend Expertise</h2>
 
       <div className="service__container" role="list">
         {services.map((service) => (

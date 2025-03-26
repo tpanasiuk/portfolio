@@ -20,33 +20,31 @@ A modern digital product agency website built with **React**, styled using **SCS
 
 ## 🛠 Technologies Used
 
-| Technology | Purpose |
-|-----------|---------|
-| **React 19** | UI development with hooks and component structure |
-| **SCSS** | Custom styling with variables, mixins, and BEM |
-| **Material UI** (`@mui`) | Accessible UI components (Drawer, Dialog, Icons) |
-| **Swiper.js** | Carousel & slider with `cardsEffect` |
-| **React Toastify** | Toast messages with custom theming |
-| **Font Awesome** | Iconography and social icons |
-| **React Router DOM v7** | Multipage routing |
-| **React Intersection Observer** | Scroll-based fade-in effects |
-| **React CountUp** | Animated stats section |
-| **The Dog API** | REST API for dog breeds gallery |
-| **Jest & Testing Library** | Component testing |
-| **Prettier** | Code formatting |
-| **Sass Loader** | SCSS compilation support |
+| Technology                      | Purpose                                           |
+| ------------------------------- | ------------------------------------------------- |
+| **React 19**                    | UI development with hooks and component structure |
+| **SCSS**                        | Custom styling with variables, mixins, and BEM    |
+| **Material UI** (`@mui`)        | Accessible UI components (Drawer, Dialog, Icons)  |
+| **Swiper.js**                   | Carousel & slider with `cardsEffect`              |
+| **React Toastify**              | Toast messages with custom theming                |
+| **Font Awesome**                | Iconography and social icons                      |
+| **React Router DOM v7**         | Multipage routing                                 |
+| **React Intersection Observer** | Scroll-based fade-in effects                      |
+| **React CountUp**               | Animated stats section                            |
+| **The Dog API**                 | REST API for dog breeds gallery                   |
+| **Jest & Testing Library**      | Component testing                                 |
+| **Prettier**                    | Code formatting                                   |
+| **Sass Loader**                 | SCSS compilation support                          |
 
 ---
 
 ## 🧪 Scripts
 
-| Command | Description |
-|--------|-------------|
-| `npm start` | Launch development server |
-| `npm run build` | Create production build |
-| `npm test` | Run unit tests |
+| Command         | Description                 |
+| --------------- | --------------------------- |
+| `npm start`     | Launch development server   |
+| `npm run build` | Create production build     |
+| `npm test`      | Run unit tests              |
 | `npm run eject` | Eject CRA config (optional) |
 
 ---
-
-

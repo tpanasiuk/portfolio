@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Dialog, DialogContent, IconButton } from '@mui/material'
@@ -65,8 +64,6 @@ const cards = [
 ]
 
 const VideoCarousel = () => {
-  const { ref, isVisible } = useScrollFadeIn()
-
   const [open, setOpen] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState(null)
 
@@ -80,13 +77,10 @@ const VideoCarousel = () => {
   }
 
   return (
-    <section
-          ref={ref}
-          className={`video-carousel ${isVisible ? 'is-visible' : ''}`}
-        >
+    <section className="video-carousel">
       <div className="video-carousel__container">
         <div className="video-carousel__header">
-          <h2 className="video-carousel__heading">Our Stories</h2>
+          <h2 className="video-carousel__heading">Video Carousel</h2>
           <p className="video-carousel__summary">
             Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut labore
             et dolore magna aliqua.
@@ -139,6 +133,7 @@ const VideoCarousel = () => {
         maxWidth="md"
         fullWidth
         className="video-carousel__dialog"
+        disableScrollLock
       >
         <IconButton
           className="video-carousel__dialog-close"

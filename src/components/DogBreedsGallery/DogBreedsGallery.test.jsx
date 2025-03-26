@@ -19,17 +19,17 @@ const mockBreedData = [
 ]
 
 beforeEach(() => {
-  global.fetch = jest.fn(() =>
-    new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          json: () => Promise.resolve(mockBreedData),
-        })
-      }, 10)
-    })
+  global.fetch = jest.fn(
+    () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            json: () => Promise.resolve(mockBreedData),
+          })
+        }, 10)
+      })
   )
 })
-
 
 afterEach(() => {
   jest.resetAllMocks()
@@ -51,9 +51,7 @@ describe('DogBreedsGallery', () => {
       render(<DogBreedsGallery />)
     })
 
-    await waitFor(() =>
-      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
-    )
+    await waitFor(() => expect(screen.queryByRole('progressbar')).not.toBeInTheDocument())
 
     expect(screen.getByRole('heading', { name: /Dog Breeds Carousel/i })).toBeInTheDocument()
     expect(screen.getAllByTestId('swiper-slide')).toHaveLength(1)
@@ -65,9 +63,7 @@ describe('DogBreedsGallery', () => {
       render(<DogBreedsGallery />)
     })
 
-    await waitFor(() =>
-      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
-    )
+    await waitFor(() => expect(screen.queryByRole('progressbar')).not.toBeInTheDocument())
 
     const image = screen.getByRole('img', { name: /Bernese Mountain Dog/i })
     expect(image).toBeInTheDocument()
