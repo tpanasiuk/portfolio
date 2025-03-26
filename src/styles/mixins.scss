@@ -1,0 +1,175 @@
+@use 'src/styles/variables' as *;
+@use 'sass:list';
+
+@mixin scroll-bar {
+  scrollbar-gutter: stable both-edges;
+
+  &::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    cursor: grab;
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: $border-radius;
+    background-color: $color--primary;
+    box-shadow:
+      inset -1px -1px 0 white,
+      inset 1px 1px 0 $color--primary;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+@mixin transitions($props...) {
+  $transitions: ();
+  @each $prop in $props {
+    $transitions: list.append($transitions, #{$prop} 0.3s ease-in-out, comma);
+  }
+  transition: $transitions;
+}
+
+@mixin transition($prop) {
+  transition: $prop 0.3s ease-in-out;
+}
+
+@mixin content-container($arg) {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @if $arg == lg {
+    max-width: 1360px;
+  }
+
+  @if $arg == md {
+    max-width: 1150px;
+  }
+
+  @if $arg == sm {
+    max-width: 1000px;
+  }
+
+  @media screen and (min-width: 1170px) {
+    padding-inline: 0;
+  }
+}
+
+@mixin padding-block {
+  padding-block: 40px;
+}
+
+@mixin font_awesome($arg) {
+  content: $arg;
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  line-height: 1;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+}
+
+@mixin button-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 1 / 1;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: transparent;
+  pointer-events: all;
+  cursor: pointer;
+
+  &::before {
+    @include font_awesome('\f144');
+    @include transition(all);
+    color: $color--white;
+    opacity: 0.8;
+    font-weight: 600;
+    font-size: 50px;
+    position: relative;
+    border: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border: none;
+    background: transparent;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin button-close {
+  @include font_awesome('\f00d');
+  @include transition(all);
+  font-size: 30px;
+  color: $color--text-primary;
+  background-color: unset !important;
+
+  &:hover {
+    background-color: none;
+    color: $color--text-primary;
+  }
+}
+
+@mixin swiper-buttons($icon) {
+  @include transition(all);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  margin: 0 $swiper-button-margin;
+  top: unset !important; //overriding Swiper styles
+  bottom: 0 !important; //overriding Swiper styles
+  padding-top: 20px;
+  z-index: 1 !important; //overriding Swiper styles
+
+  &::after {
+    @include font_awesome($icon);
+    color: $swiper-button-color;
+    font-size: $swiper-button-font-size;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@mixin overlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}

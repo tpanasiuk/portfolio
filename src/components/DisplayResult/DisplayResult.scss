@@ -1,0 +1,61 @@
+@use 'src/styles/mixins' as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/typography' as *;
+
+.display-result {
+  & {
+    position: relative;
+    height: 50vh;
+    background: url('../../assets/img/1920x1080/02.webp') fixed center no-repeat;
+    background-size: cover;
+    color: $color--white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &::before {
+    @include overlay;
+  }
+
+  &__content {
+    @include flex-column-center;
+
+    & {
+      position: relative;
+      z-index: 1;
+      max-width: 750px;
+      padding: 20px;
+    }
+  }
+
+  &__title {
+    & {
+      font-size: $h1-size;
+      color: $color--white;
+    }
+  }
+
+  &__text {
+    & {
+      font-size: $font-size-md;
+      font-weight: $font-weight-light;
+      opacity: 0.7;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &__title {
+      & {
+        font-size: $h1-size-desktop;
+      }
+    }
+
+    &__text {
+      & {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}

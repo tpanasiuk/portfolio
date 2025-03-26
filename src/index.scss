@@ -1,0 +1,94 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+@use './styles/typography' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+html,
+body,
+* {
+  & {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.4;
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  & {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+a {
+  & {
+    text-decoration: none;
+  }
+}
+
+p {
+  & {
+    margin-bottom: 10px;
+  }
+
+  &:last-child {
+    & {
+      margin-bottom: 0;
+    }
+  }
+}
+
+::selection {
+  & {
+    color: #fff;
+    background: $color--primary;
+    text-shadow: none;
+  }
+}
+
+.swiper {
+  & {
+    position: initial !important;
+  }
+}
+
+.swiper-pagination {
+  & {
+    display: none;
+  }
+}
+
+.swiper-button-next {
+  @include swiper-buttons('\f054');
+
+  & {
+    padding-bottom: 40px;
+  }
+}
+
+.swiper-button-prev {
+  @include swiper-buttons('\f053');
+
+  & {
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    & {
+      top: 50% !important;
+      bottom: unset !important;
+    }
+  }
+}

@@ -1,0 +1,209 @@
+@use 'sass:color';
+
+@use 'src/styles/mixins' as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/typography' as *;
+
+.footer {
+  & {
+    background: $color--black;
+    color: $color--white;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  &__container {
+    @include content-container(md);
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__top {
+    & {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      align-items: start;
+      text-align: left;
+    }
+
+    .footer__nav {
+      & {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer__menu {
+        & {
+          list-style: none;
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          gap: 10px 40px;
+          justify-content: flex-start;
+          justify-items: start;
+        }
+
+        .footer__menu-item {
+          & {
+            display: inline-block;
+          }
+
+          .footer__menu-link {
+            @include transition(color);
+            & {
+              text-decoration: none;
+              color: $color--white;
+              font-size: $font-size-md;
+            }
+
+            &:hover {
+              color: $color--primary;
+            }
+          }
+        }
+      }
+    }
+
+    .footer__links {
+      & {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer__link {
+        @include transition(color);
+        & {
+          text-decoration: none;
+          color: $color--white;
+          font-size: $font-size-md;
+        }
+
+        &:hover {
+          color: $color--primary;
+        }
+      }
+    }
+
+    .footer__newsletter {
+      & {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer__newsletter-text {
+        & {
+          font-size: $font-size-md;
+        }
+      }
+
+      .footer__newsletter-form {
+        & {
+          display: flex;
+          width: 100%;
+          gap: 10px;
+        }
+
+        .footer__newsletter-input {
+          & {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid $color--text-primary;
+            border-radius: $border-radius;
+            background: transparent;
+            color: $color--white;
+          }
+        }
+
+        .footer__newsletter-button {
+          @include transition(all);
+          & {
+            padding: 10px 15px;
+            background: $color--primary;
+            color: $color--white;
+            border: none;
+            border-radius: $border-radius;
+            cursor: pointer;
+          }
+
+          &:hover {
+            background: color.scale($color--primary, $lightness: -10%);
+          }
+        }
+      }
+    }
+  }
+
+  &__social {
+    & {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .footer__social-link {
+      @include transition(color);
+      & {
+        font-size: 24px;
+        color: $color--white;
+      }
+
+      &:hover {
+        color: $color--primary;
+      }
+    }
+  }
+
+  &__copyright {
+    & {
+      font-size: $font-size-sm;
+      color: $color--text-primary;
+    }
+  }
+
+  .toast-message {
+    color: $color--primary;
+    font-family: $font-primary;
+    font-size: $font-size-sm;
+    border-radius: $border-radius;
+    padding: 14px 16px;
+    box-shadow: $shadow--light;
+    transition: all 0.6s ease-in-out !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    &__top {
+      & {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+        align-items: center;
+      }
+    }
+
+    .footer__menu {
+      & {
+        justify-content: center;
+      }
+    }
+
+    .footer__social {
+      & {
+        justify-content: center;
+      }
+    }
+
+    .footer__copyright {
+      & {
+        text-align: center;
+      }
+    }
+  }
+}

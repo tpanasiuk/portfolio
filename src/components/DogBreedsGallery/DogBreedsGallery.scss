@@ -1,0 +1,143 @@
+@use "src/styles/variables" as *;
+@use "src/styles/mixins" as *;
+@use "src/styles/typography" as *;
+
+.breeds {
+  @include content-container(lg);
+  @include padding-block;
+
+  & {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+  }
+
+  &__heading {
+    & {
+      color: $color--text-primary;
+      font-size: $h1-size;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+
+      &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__carousel {
+    @include content-container(md);
+
+    & {
+      padding-bottom: 20px;
+      padding-inline: 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__card {
+    & {
+      @include transition(all);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: $color--white;
+      border-radius: $border-radius;
+      box-shadow: $shadow--medium;
+      margin-block: 20px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      width: 400px;
+    }
+
+    &:hover {
+      & {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  &__image {
+    @include transition(opacity);
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: $border-radius $border-radius 0 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    & {
+      padding: 20px;
+      text-align: center;
+    }
+  }
+
+  &__name {
+    @include heading($h3-size, $h3-size-desktop, $font-weight-medium);
+    margin: 0;
+  }
+
+  &__info {
+    font-family: $font-primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    color: $color--text-primary;
+    margin: 0;
+
+    .breeds__label {
+      font-weight: $font-weight-semibold;
+      color: $color--primary;
+      margin-right: 4px;
+    }
+  }
+
+  &__spinner {
+    color: $color--primary;
+  }
+
+  .swiper.swiper-cards {
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    @include transition(all);
+    opacity: 0;
+  }
+
+  .swiper-slide-active,
+  .swiper-slide-next,
+  .swiper-slide-prev {
+    @include transition(all);
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .breeds {
+    &__heading {
+      & {
+        font-size: $h1-size-desktop;
+      }
+    }
+
+    .swiper-slide {
+      & {
+        height: auto !important;
+      }
+    }
+  }
+}

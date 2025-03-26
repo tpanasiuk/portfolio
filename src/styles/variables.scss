@@ -1,0 +1,38 @@
+:root {
+  --toastify-color-success: #17bed2;
+  --toastify-icon-color-success: #17bed2;
+}
+
+$color--primary: #17bed2;
+$color--secondary: #007bff;
+$color--accent: #52bcce;
+$color--blue-sky: #67a2b9;
+$color--green-dark: #213b30;
+$color--brown-dark: #554a2e;
+$color--blue-dark: #304953;
+
+$color--white: #ffffff;
+$color--black: #000000;
+$color--grey-bg: #fafafa;
+
+$color--text-primary: #515769;
+$color--text-muted: #adb5bd;
+
+$color--btn-primary: #f3f4f5;
+
+$shadow--light: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow--medium: 0 6px 12px rgba(0, 0, 0, 0.15);
+$shadow--dark: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+$border-radius: 10px;
+
+// Swiper Button Variables
+$swiper-button-color: $color--primary;
+$swiper-button-font-size: 30px;
+$swiper-button-margin: 20px;
+
+:focus-visible {
+  outline: 2px solid $color--primary;
+  outline-offset: 2px;
+  border-radius: $border-radius;
+}

@@ -1,0 +1,93 @@
+@use 'src/styles/mixins' as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/typography' as *;
+
+.home {
+  & {
+    position: relative;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__swiper {
+    & {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__image {
+    & {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    & {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    & {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $color--white;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      z-index: 2;
+    }
+
+    h1 {
+      & {
+        color: $color--white;
+      }
+    }
+
+    p {
+      @include heading($h3-size, $h3-size-desktop, $font-weight-bold);
+
+      & {
+        color: $color--white;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    & {
+      bottom: 10px !important;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    & {
+      color: $color--white;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home__content {
+    max-width: 800px;
+  }
+}

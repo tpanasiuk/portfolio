@@ -1,0 +1,126 @@
+@use 'src/styles/mixins' as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/typography' as *;
+
+.service {
+  & {
+    @include padding-block;
+    background-color: $color--grey-bg;
+     display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              gap: 20px;
+  }
+
+  &__heading {
+      & {
+        text-align: center;
+      }
+    }
+
+  &__container {
+    @include content-container(md);
+
+    & {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      & {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      & {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  &__item {
+    @include flex-column-center;
+
+    & {
+      background-color: $color--white;
+      padding: 40px;
+      text-align: center;
+      border-radius: $border-radius;
+      box-shadow: $shadow--light;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        background-color 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      & {
+        transform: translateY(-5px);
+        box-shadow: $shadow--medium;
+        background-color: $color--primary;
+      }
+
+      .service__icon {
+        & {
+          transform: translate3d(0, -100%, 0);
+          opacity: 0;
+        }
+      }
+
+      .service__content {
+        & {
+          transform: translate3d(0, -30%, 0);
+        }
+      }
+
+      .service__title,
+      .service__text {
+        & {
+          color: $color--white;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    & {
+      font-size: 30px;
+      color: $color--primary;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &__content {
+    @include flex-column-center;
+
+    & {
+      transform: translate3d(0, 0, 0);
+      transition: all 0.3s cubic-bezier(0.7, 1, 0.7, 1);
+    }
+  }
+
+  &__title {
+    @include heading($h4-size, $h4-size-desktop, $font-weight-bold);
+
+    & {
+      color: $color--text-primary;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+
+  &__text {
+    & {
+      font-size: $font-size-md;
+      color: $color--text-primary;
+      line-height: 1.5;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+}
