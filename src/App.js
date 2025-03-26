@@ -13,7 +13,7 @@ const NotFound = () => <h2 style={{ padding: '100px', textAlign: 'center' }}>Thi
 const App = () => {
   return (
     <StyledEngineProvider injectFirst>
-      <Router>
+      <Router basename={process.env.NODE_ENV === 'production' ? '/aironepage_react' : '/'}>
         <Header />
         <main>
           <Routes>

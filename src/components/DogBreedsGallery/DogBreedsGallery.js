@@ -15,7 +15,7 @@ const DogBreedsGallery = () => {
       try {
         const res = await fetch('https://api.thedogapi.com/v1/breeds', {
           headers: {
-            'x-api-key': process.env.REACT_APP_DOG_API_KEY,
+            'x-api-key': "live_IHEmwCh8ROyNDDf8GvugLJt3EgbaNVJC9LzWrnsHQEkS4w08jYM5DFbyzPECobqY",
           },
         })
         const data = await res.json()
