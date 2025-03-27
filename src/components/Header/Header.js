@@ -51,7 +51,7 @@ const Header = () => {
       <Toolbar className="header__nav">
         <Box className="header__logo">
           <a href="/" onClick={handleLogoClick}>
-            <img src={logoHeader} alt="Aironpage" loading="lazy" />
+            <img src={logoHeader} alt="logo" loading="lazy" />
           </a>
         </Box>
 
@@ -60,14 +60,11 @@ const Header = () => {
           <Button component={Link} to="/" className="header__menu-link">
             About me
           </Button>
+          <Button component={Link} to="/experience" className="header__menu-link">
+            Experience
+          </Button>
           <Button component={Link} to="/widgets" className="header__menu-link">
             Widgets
-          </Button>
-          <Button component={Link} to="/services" className="header__menu-link">
-            Services
-          </Button>
-          <Button component={Link} to="/pricing" className="header__menu-link">
-            Pricing
           </Button>
           <Button component={Link} to="/contact" className="header__menu-link">
             Contact
@@ -95,7 +92,7 @@ const Header = () => {
           }}
         >
           <List className="header__mobile-menu">
-            {['About me', 'Widgets', 'Services', 'Pricing', 'Contact'].map((text, index) => (
+            {['About me', 'Experience', 'Widgets', 'Contact'].map((text, index) => (
               <ListItem key={index} disablePadding>
                 <ListItemButton
                   component={Link}

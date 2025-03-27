@@ -17,10 +17,9 @@ describe('Header component', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByRole('link', { name: /Home/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Products/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Services/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Pricing/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /About me/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Experience/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Widgets/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Contact/i })).toBeInTheDocument()
   })
 
@@ -36,7 +35,7 @@ describe('Header component', () => {
 
     expect(screen.getByRole('presentation')).toBeInTheDocument()
 
-    const mobileLink = screen.getByRole('link', { name: /Products/i })
+    const mobileLink = screen.getByRole('link', { name: /Experience/i })
     fireEvent.click(mobileLink)
   })
 
@@ -54,5 +53,19 @@ describe('Header component', () => {
 
     const appBar = screen.getByRole('banner')
     expect(appBar.className).toMatch(/header--scrolled/)
+  })
+
+  it('scrolls to top when logo is clicked on homepage', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Header />
+      </MemoryRouter>
+    )
+
+    const logoLink = screen.getByRole('link', { name: /logo/i })
+
+    fireEvent.click(logoLink)
+
+    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' })
   })
 })

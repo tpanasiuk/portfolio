@@ -19,9 +19,10 @@ describe('Home component', () => {
     expect(slides).toHaveLength(5)
   })
 
-  it('renders heading and summary text', () => {
-    render(<Home />)
-    expect(screen.getByRole('heading', { name: /digital product agency/i })).toBeInTheDocument()
-    expect(screen.getByText(/look no further/i)).toBeInTheDocument()
-  })
+ it('renders heading and summary text', () => {
+   render(<Home />)
+   expect(screen.getByRole('heading', { name: /Tetiana Panasiuk/i })).toBeInTheDocument()
+   expect(screen.getByText(/Frontend Developer/i)).toBeInTheDocument()
+ })
+
 })

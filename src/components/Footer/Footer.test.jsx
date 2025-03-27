@@ -28,13 +28,10 @@ describe('Footer component', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByText(/home/i)).toBeInTheDocument()
-    expect(screen.getByText(/products/i)).toBeInTheDocument()
-    expect(screen.getByText(/services/i)).toBeInTheDocument()
-    expect(screen.getByText(/pricing/i)).toBeInTheDocument()
+    expect(screen.getByText(/about me/i)).toBeInTheDocument()
+    expect(screen.getByText(/experience/i)).toBeInTheDocument()
+    expect(screen.getByText(/widgets/i)).toBeInTheDocument()
     expect(screen.getByText(/contact/i)).toBeInTheDocument()
-    expect(screen.getByText(/privacy policy/i)).toBeInTheDocument()
-    expect(screen.getByText(/terms & conditions/i)).toBeInTheDocument()
   })
 
   it('submits valid email and shows success toast', () => {

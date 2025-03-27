@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const Swiper = ({ children, ...props }) => (
-  <div data-testid="swiper" {...props}>
+export const Swiper = ({ children }) => (
+  <div data-testid="swiper">
     {children}
   </div>
 )
 
-export const SwiperSlide = ({ children, ...props }) => (
-  <div data-testid="swiper-slide" {...props}>
+export const SwiperSlide = ({ children }) => (
+  <div data-testid="swiper-slide">
     {children}
   </div>
 )

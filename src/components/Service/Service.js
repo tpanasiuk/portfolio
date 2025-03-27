@@ -46,7 +46,7 @@ const services = [
     id: 6,
     icon: faPlug,
     title: 'API Integration',
-    text: 'I integrate REST APIs into frontend projects and ensure smooth data flow with robust error handling and clean UX.',
+    text: 'I integrate various APIs into frontend projects and ensure smooth data flow with robust error handling and clean UX.',
   },
 ]
 

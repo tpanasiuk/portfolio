@@ -74,16 +74,16 @@
 
   .swiper-pagination {
     & {
+        display: flex;
+        justify-content: center;
       bottom: 10px !important;
+    }
+
+.swiper-pagination-bullet-active {
+    background: $color--primary;
     }
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    & {
-      color: $color--white;
-    }
-  }
 }
 
 @media screen and (min-width: 768px) {

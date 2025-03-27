@@ -42,7 +42,7 @@
     .swiper-slide {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
   }
 
@@ -120,6 +120,7 @@
   .swiper-slide {
     @include transition(all);
     opacity: 0;
+    height: auto !important;
   }
 
   .swiper-slide-active,
@@ -127,6 +128,10 @@
   .swiper-slide-prev {
     @include transition(all);
     opacity: 1;
+  }
+
+  .swiper-wrapper {
+    padding-bottom: 40px;
   }
 }
 
@@ -138,9 +143,10 @@
       }
     }
 
-    .swiper-slide {
-      & {
+    &__carousel {
+      .swiper-slide {
         height: auto !important;
+        align-items: center;
       }
     }
   }

@@ -1,0 +1,113 @@
+@use 'src/styles/mixins' as *;
+@use 'src/styles/variables' as *;
+@use 'src/styles/typography' as *;
+
+.skills-tools {
+  @include padding-block;
+  background-color: $color--grey-bg;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__heading {
+    @include content-container(md);
+    color: $color--text-primary;
+    text-align: center;
+  }
+
+  &__grid {
+    @include content-container(md);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__card {
+    background-color: $color--white;
+    border-radius: $border-radius;
+    padding: 24px;
+    box-shadow: $shadow--light;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__title {
+    color: $color--primary;
+    font-size: $font-size-lg;
+    margin-bottom: 20px;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+
+    @media screen and (min-width: 768px) {
+      width: 100px;
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  &__label {
+    color: $color--text-primary;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .skills-tools {
+    &__grid {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__card {
+      flex: 1 1 calc(50% - 15px);
+    }
+
+    &__icon {
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    &__card--left {
+      transform: translateX(-40px);
+    }
+
+    &__card--right {
+      transform: translateX(40px);
+    }
+
+    &__card--left.is-visible,
+    &__card--right.is-visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}

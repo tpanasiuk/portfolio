@@ -5,7 +5,6 @@ import {
   faFacebookF,
   faInstagram,
   faLinkedin,
-  faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -27,7 +26,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo">
       <ToastContainer
         position="bottom-right"
         autoClose={4000}
@@ -39,55 +38,34 @@ const Footer = () => {
 
       <div className="footer__container">
         <div className="footer__top">
-          <nav className="footer__nav">
+          <nav className="footer__nav" aria-label="Footer navigation">
             <ul className="footer__menu">
               <li className="footer__menu-item">
-                <Link to="/" className="footer__menu-link">
-                  About me
-                </Link>
+                <Link to="/" className="footer__menu-link">About me</Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/widgets" className="footer__menu-link">
-                  Widgets
-                </Link>
+                <Link to="/experience" className="footer__menu-link">Experience</Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/services" className="footer__menu-link">
-                  Services
-                </Link>
+                <Link to="/widgets" className="footer__menu-link">Widgets</Link>
               </li>
               <li className="footer__menu-item">
-                <Link to="/pricing" className="footer__menu-link">
-                  Pricing
-                </Link>
-              </li>
-              <li className="footer__menu-item">
-                <Link to="/contact" className="footer__menu-link">
-                  Contact
-                </Link>
+                <Link to="/contact" className="footer__menu-link">Contact</Link>
               </li>
             </ul>
           </nav>
 
-          <div className="footer__links">
-            <Link to="/privacy" className="footer__link">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="footer__link">
-              Terms & Conditions
-            </Link>
-          </div>
-
           <div className="footer__newsletter">
-            <p className="footer__newsletter-text">Subscribe to our newsletter</p>
-            <form className="footer__newsletter-form" onSubmit={handleSubmit}>
+            <form className="footer__newsletter-form" onSubmit={handleSubmit} aria-label="Newsletter signup form">
+              <label htmlFor="footer-email" className="sr-only">Email address</label>
               <input
+                id="footer-email"
                 type="email"
                 placeholder="Enter your email"
                 className="footer__newsletter-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                aria-label="Email address"
+                aria-required="true"
                 required
               />
               <button type="submit" className="footer__newsletter-button">
@@ -97,12 +75,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer__social">
+        <div className="footer__social" aria-label="Social media links">
           <a
             href="https://www.linkedin.com/in/tetiana-panasiuk/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__social-link"
+            aria-label="LinkedIn"
+            title="LinkedIn"
           >
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
@@ -111,6 +91,8 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="footer__social-link"
+            aria-label="Facebook"
+            title="Facebook"
           >
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
@@ -119,6 +101,8 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="footer__social-link"
+            aria-label="Instagram"
+            title="Instagram"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>

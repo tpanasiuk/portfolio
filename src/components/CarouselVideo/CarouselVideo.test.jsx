@@ -28,7 +28,7 @@ beforeEach(() => {
 describe('VideoCarousel component', () => {
   it('renders the section heading', () => {
     render(<VideoCarousel />)
-    expect(screen.getByRole('heading', { name: /Our Stories/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Video Carousel/i })).toBeInTheDocument()
   })
 
   it('renders all video cards', () => {

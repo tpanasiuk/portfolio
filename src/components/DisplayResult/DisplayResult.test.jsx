@@ -6,8 +6,8 @@ describe('DisplayResult component', () => {
   it('renders the title and paragraph', () => {
     render(<DisplayResult />)
 
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Displaying the Result')
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('About Me')
 
-    expect(screen.getByText(/Lorem ipsum dolor sit amet/i)).toBeInTheDocument()
+    expect(screen.getByText(/Frontend Developer/i)).toBeInTheDocument()
   })
 })

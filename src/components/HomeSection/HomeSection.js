@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import './HomeSection.scss'
 
 import img1 from '../../assets/img/1920x1080/01.webp'
@@ -15,7 +15,8 @@ const Home = () => {
   return (
     <section className="home">
       <Swiper
-        modules={[Autoplay]}
+        modules={[Autoplay, Pagination]}
+        pagination
         spaceBetween={0}
         slidesPerView={1}
         loop={true}

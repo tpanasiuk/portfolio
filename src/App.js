@@ -4,9 +4,10 @@ import { StyledEngineProvider } from '@mui/material/styles'
 
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import Home from './pages/Home'
-import Products from './pages/Products'
-import NotFound from './components/NotFound/NotFound'
+import About from './pages/About'
+import Widgets from './pages/Widgets'
+import Experience from './pages/Experience'
+import HomeSectionContentPages from './components/HomeSectionContentPages/HomeSectionContentPages'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 const App = () => {
@@ -17,9 +18,10 @@ const App = () => {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/widgets" element={<Products />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<About />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/widgets" element={<Widgets />} />
+            <Route path="*" element={<HomeSectionContentPages title="This page is under construction" />} />
           </Routes>
         </main>
         <Footer />
