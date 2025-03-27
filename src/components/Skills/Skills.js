@@ -58,18 +58,17 @@ const Skills = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add('is-visible')
           } else {
-            entry.target.classList.remove('is-visible');
+            entry.target.classList.remove('is-visible')
           }
-        });
+        })
       },
       { threshold: 0.2 }
-    );
-
+    )
 
     const items = containerRef.current.querySelectorAll('.skills-tools__card')
     items.forEach((item) => observer.observe(item))

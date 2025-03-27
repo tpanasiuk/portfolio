@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer'
 import About from './pages/About'
 import Widgets from './pages/Widgets'
 import Experience from './pages/Experience'
+import Contact from './pages/Contact'
 import HomeSectionContentPages from './components/HomeSectionContentPages/HomeSectionContentPages'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
@@ -21,7 +22,8 @@ const App = () => {
             <Route path="/" element={<About />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/widgets" element={<Widgets />} />
-            <Route path="*" element={<HomeSectionContentPages title="This page is under construction" />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<HomeSectionContentPages title="This page is not found" />} />
           </Routes>
         </main>
         <Footer />

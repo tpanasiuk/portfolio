@@ -6,6 +6,7 @@
   @include padding-block;
   background-color: $color--grey-bg;
   position: relative;
+  overflow: hidden;
 
   &__heading {
     @include content-container(md);

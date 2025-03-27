@@ -11,7 +11,6 @@ jest.mock('../../assets/img/vertical/2.jpg', () => 'img2.jpg')
 jest.mock('../../assets/img/vertical/3.jpg', () => 'img3.jpg')
 jest.mock('../../assets/img/vertical/4.jpg', () => 'img4.jpg')
 jest.mock('../../assets/img/vertical/5.jpg', () => 'img5.jpg')
-jest.mock('../../assets/img/vertical/6.jpg', () => 'img6.jpg')
 
 beforeEach(() => {
   window.IntersectionObserver = class {
@@ -28,13 +27,13 @@ beforeEach(() => {
 describe('VideoCarousel component', () => {
   it('renders the section heading', () => {
     render(<VideoCarousel />)
-    expect(screen.getByRole('heading', { name: /Video Carousel/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Favourite music for coding/i })).toBeInTheDocument()
   })
 
   it('renders all video cards', () => {
     render(<VideoCarousel />)
     const images = screen.getAllByRole('img')
-    expect(images.length).toBe(6)
+    expect(images.length).toBe(5)
   })
 
   it('opens modal when play button is clicked', () => {

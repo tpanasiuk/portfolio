@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Dialog, DialogContent, IconButton } from '@mui/material'
@@ -10,60 +10,53 @@ import videoThumb2 from '../../assets/img/vertical/2.jpg'
 import videoThumb3 from '../../assets/img/vertical/3.jpg'
 import videoThumb4 from '../../assets/img/vertical/4.jpg'
 import videoThumb5 from '../../assets/img/vertical/5.jpg'
-import videoThumb6 from '../../assets/img/vertical/6.jpg'
 
 const cards = [
   {
     id: 1,
-    videoUrl: 'https://www.youtube.com/embed/xAR6N9N8e6U?si=zfmtk2UGEbG5kdBh',
+    videoUrl: 'https://www.youtube.com/embed/LRApJG5WdIg',
     image: videoThumb1,
-    text: 'Horem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.',
-    name: 'Anthony Bahringer',
-    position: 'Senior Research Manager',
+    name: 'Måneskin',
+    position: 'Rush',
   },
   {
     id: 2,
-    videoUrl: 'https://www.youtube.com/embed/xAR6N9N8e6U?si=zfmtk2UGEbG5kdBh',
+    videoUrl: 'https://www.youtube.com/embed/4vRGUzYRGaQ',
     image: videoThumb2,
-    text: 'Curabitur tempus urna at turpis condimentum lobortis. Curabitur tempus urna at.',
-    name: 'Jane Doe',
-    position: 'Lead Engineer',
+    name: 'Latexfauna',
+    position: 'Senbernar',
   },
   {
     id: 3,
-    videoUrl: 'https://www.youtube.com/embed/xAR6N9N8e6U?si=zfmtk2UGEbG5kdBh',
+    videoUrl: 'https://www.youtube.com/embed/DlCGst1XmcE',
     image: videoThumb3,
-    text: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    name: 'John Smith',
-    position: 'Marketing Director',
+    name: 'BoomBox',
+    position: 'All albums',
   },
   {
     id: 4,
-    videoUrl: 'https://www.youtube.com/embed/xAR6N9N8e6U?si=zfmtk2UGEbG5kdBh',
+    videoUrl: 'https://www.youtube.com/embed/j3qRuxTyA-E',
     image: videoThumb4,
-    text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-    name: 'Emma Wilson',
-    position: 'Software Developer',
+    name: 'Skryabin',
+    position: 'All albums',
   },
   {
     id: 5,
-    videoUrl: 'https://www.youtube.com/embed/xAR6N9N8e6U?si=zfmtk2UGEbG5kdBh',
+    videoUrl: 'https://www.youtube.com/embed/8scL5oJX6CM',
     image: videoThumb5,
-    text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    name: 'Michael Brown',
-    position: 'Product Manager',
-  },
-  {
-    id: 6,
-    videoUrl: 'https://www.youtube.com/embed/xAR6N9N8e6U?si=zfmtk2UGEbG5kdBh',
-    image: videoThumb6,
-    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    name: 'Sophia Martinez',
-    position: 'UX Designer',
-  },
+    name: 'Cigarettes after S',
+    position: 'All albums',
+  }
 ]
 
 const VideoCarousel = () => {
+const [hasLoaded, setHasLoaded] = useState(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setHasLoaded(true), 50)
+    return () => clearTimeout(timeout)
+  }, [])
+
   const [open, setOpen] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState(null)
 
@@ -77,13 +70,12 @@ const VideoCarousel = () => {
   }
 
   return (
-    <section className="video-carousel">
+    <section className={`video-carousel ${hasLoaded ? 'fade-in' : ''}`}>
       <div className="video-carousel__container">
         <div className="video-carousel__header">
-          <h2 className="video-carousel__heading">Video Carousel</h2>
+          <h2 className="video-carousel__heading">Favourite music for coding</h2>
           <p className="video-carousel__summary">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut labore
-            et dolore magna aliqua.
+            Enjoy my favourite music with me
           </p>
         </div>
 
@@ -116,7 +108,6 @@ const VideoCarousel = () => {
                   />
                 </div>
                 <div className="video-carousel__content">
-                  <p className="video-carousel__text">{card.text}</p>
                   <p className="video-carousel__name">{card.name}</p>
                   <p className="video-carousel__position">{card.position}</p>
                 </div>

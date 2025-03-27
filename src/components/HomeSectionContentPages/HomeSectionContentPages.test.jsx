@@ -18,12 +18,7 @@ describe('HomeSectionContentPages component', () => {
   })
 
   it('renders provided title and image props', () => {
-    render(
-      <HomeSectionContentPages
-        title="Custom Page Heading"
-        image="custom-image.jpg"
-      />
-    )
+    render(<HomeSectionContentPages title="Custom Page Heading" image="custom-image.jpg" />)
 
     const image = screen.getByAltText('mountains')
     expect(image).toHaveAttribute('src', 'custom-image.jpg')
