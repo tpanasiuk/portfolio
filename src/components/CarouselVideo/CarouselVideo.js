@@ -46,11 +46,11 @@ const cards = [
     image: videoThumb5,
     name: 'Cigarettes after S',
     position: 'All albums',
-  }
+  },
 ]
 
 const VideoCarousel = () => {
-const [hasLoaded, setHasLoaded] = useState(false)
+  const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
     const timeout = setTimeout(() => setHasLoaded(true), 50)
@@ -74,9 +74,7 @@ const [hasLoaded, setHasLoaded] = useState(false)
       <div className="video-carousel__container">
         <div className="video-carousel__header">
           <h2 className="video-carousel__heading">Favourite music for coding</h2>
-          <p className="video-carousel__summary">
-            Enjoy my favourite music with me
-          </p>
+          <p className="video-carousel__summary">Enjoy my favourite music with me</p>
         </div>
 
         <div className="video-carousel__carousel">

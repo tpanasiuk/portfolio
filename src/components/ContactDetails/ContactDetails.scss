@@ -109,15 +109,15 @@
 }
 
 @media screen and (min-width: 768px) {
-    .contact-details {
-        &__wrapper {
-            flex-direction: row;
-                  align-items: flex-start;
-                  text-align: left;
-            }
-
-     &__image-container {
-         justify-content: flex-end;
-         }
+  .contact-details {
+    &__wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
     }
+
+    &__image-container {
+      justify-content: flex-end;
+    }
+  }
 }
