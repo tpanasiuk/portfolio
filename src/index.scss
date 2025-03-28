@@ -51,6 +51,16 @@ p {
   }
 }
 
+ul {
+  padding-left: 20px;
+
+  li {
+    &::marker {
+      color: $color--primary;
+    }
+  }
+}
+
 ::selection {
   & {
     color: #fff;

@@ -163,7 +163,7 @@
   &::after {
     @include font_awesome($icon);
     color: $swiper-button-color;
-    font-size: $swiper-button-font-size;
+    font-size: var(--swiper-navigation-size);
   }
 
   &:hover {

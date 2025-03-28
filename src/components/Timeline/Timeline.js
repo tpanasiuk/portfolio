@@ -6,35 +6,39 @@ const experience = [
     year: '05.2024 — Present',
     title: 'Web Developer',
     company: 'SmartRecruiters',
-    description: 'Creating and optimizing career websites using React, TypeScript, and SCSS.',
+    description:
+      'Developed career websites based on Figma designs, ensuring accurate implementation of layouts, typography and design components. Created and optimized web-components following mobile-first approach and accessibility guidelines.',
     align: 'left',
   },
   {
     year: '03.2023 — 04.2024',
     title: 'Software Engineer',
     company: 'Cornerstone OnDemand',
-    description: 'Developed login page management with React, Redux, and TypeScript.',
+    description: 'Developed application for customized login page management.',
     align: 'right',
   },
   {
     year: '08.2022 — 03.2023',
     title: 'Associate Software Engineer',
     company: 'Cornerstone OnDemand',
-    description: 'Built branded web components and career site tools using Vue.js and Less.',
+    description:
+      "Created custom branded web components based on customers' requirements and mock-ups. Customized the customers' career websites and extended their functionality. Developed the tool for managing branding specification requirements.",
     align: 'left',
   },
   {
     year: '01.2019 — 07.2020',
     title: 'Junior Front Office Developer',
     company: 'Saba Software',
-    description: 'Styled and configured recruitment pages using Bootstrap and WordPress.',
+    description:
+      "Configured the recruitment platform and delivered JavaScript based components. Integrated customers' job applications to web pages and WordPress CMS, configured and styled this according to branding guidelines.",
     align: 'right',
   },
   {
     year: '02.2017 — 08.2018',
     title: 'Customer Service Representative',
     company: 'Arvato Finance',
-    description: 'Supported financial service clients and ensured data privacy compliance.',
+    description:
+      'Provided high quality online customer service related to Google Ads, Google Analytics, Google Tag Manager. Planned and maintained the team schedule to make sure the workflow is followed. Reported the overall team performance on a daily basis and creating weekly reports.',
     align: 'left',
   },
 ]
@@ -76,7 +80,14 @@ const TimelineExperience = () => {
             <div className="timeline__content">
               <h3 className="timeline__title">{item.title}</h3>
               <h4 className="timeline__company">{item.company}</h4>
-              <p className="timeline__description">{item.description}</p>
+              <ul className="timeline__description">
+                {item.description
+                  .split('. ')
+                  .filter((sentence) => sentence.trim() !== '')
+                  .map((sentence, index) => (
+                    <li key={index}>{sentence.trim().replace(/\.$/, '')}.</li>
+                  ))}
+              </ul>
             </div>
           </div>
         ))}

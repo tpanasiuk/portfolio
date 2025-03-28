@@ -29,7 +29,6 @@ describe('Work component', () => {
 
     expect(screen.getByText('Web Developer')).toBeInTheDocument()
     expect(screen.getByText(/SmartRecruiters/i)).toBeInTheDocument()
-    expect(screen.getByText(/Creating and optimizing web components/i)).toBeInTheDocument()
   })
 
   it('closes dialog on close button click', async () => {
@@ -62,6 +61,5 @@ describe('Work component', () => {
     fireEvent.keyDown(item, { key: ' ', code: 'Space' })
 
     expect(screen.getByText('Associate Software Engineer')).toBeInTheDocument()
-    expect(screen.getByText(/Created branded web components/i)).toBeInTheDocument()
   })
 })

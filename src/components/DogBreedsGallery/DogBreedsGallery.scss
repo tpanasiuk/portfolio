@@ -59,7 +59,7 @@
       transition:
         transform 0.3s ease-in-out,
         box-shadow 0.3s ease-in-out;
-      width: 400px;
+      width: 450px;
     }
 
     &:hover {
@@ -72,14 +72,20 @@
   &__image {
     @include transition(opacity);
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
+    object-position: top;
     border-radius: $border-radius $border-radius 0 0;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    border-radius: $border-radius;
 
     &--visible {
       opacity: 1;
+    }
+
+    &-container {
+      height: 300px;
     }
   }
 
@@ -123,9 +129,7 @@
     height: auto !important;
   }
 
-  .swiper-slide-active,
-  .swiper-slide-next,
-  .swiper-slide-prev {
+  .swiper-slide-active {
     @include transition(all);
     opacity: 1;
   }
@@ -147,6 +151,23 @@
       .swiper-slide {
         height: auto !important;
         align-items: center;
+      }
+
+      .swiper-slide-active,
+      .swiper-slide-next,
+      .swiper-slide-prev {
+        @include transition(all);
+        opacity: 1;
+      }
+    }
+
+    &__image {
+      object-fit: cover;
+      object-position: top;
+      border-radius: $border-radius $border-radius 0 0;
+
+      &-container {
+        height: 400px;
       }
     }
   }

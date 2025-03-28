@@ -16,7 +16,7 @@ const workItems = [
     title: 'Web Developer',
     subtitle: 'SmartRecruiters · 05.2024 — Present',
     description:
-      'Creating and optimizing web components using HTML5, SCSS, JavaScript, TypeScript, and React. Building career websites based on Figma designs and maintaining code quality via unit testing (Vitest, Jest).',
+      'Developed career websites based on Figma designs, ensuring accurate implementation of layouts, typography and design components. Created and optimized web-components following mobile-first approach and accessibility guidelines.',
     techStack: ['React', 'TypeScript', 'SCSS', 'HTML5', 'JavaScript', 'Figma', 'Vitest', 'Jest'],
     details: {
       location: 'Cracow, Poland',
@@ -27,8 +27,7 @@ const workItems = [
     image: img2,
     title: 'Software Engineer',
     subtitle: 'Cornerstone OnDemand · 03.2023 — 04.2024',
-    description:
-      'Developed an application for customized login page management using React, Redux, and TypeScript.',
+    description: 'Developed front end for customized login page management application.',
     techStack: ['React', 'Redux', 'TypeScript', 'JavaScript', 'CSS'],
     details: {
       location: 'Cracow, Poland',
@@ -40,7 +39,7 @@ const workItems = [
     title: 'Associate Software Engineer',
     subtitle: 'Cornerstone OnDemand · 08.2022 — 03.2023',
     description:
-      'Created branded web components, customized customer career websites (JavaScript, jQuery), and developed a branding specification management tool using Vue.js and Less.',
+      "Created branded web components, customized customers' career websites, developed a branding specification management tool.",
     techStack: ['Vue.js', 'Less', 'JavaScript', 'jQuery', 'HTML', 'CSS'],
     details: {
       location: 'Cracow, Poland',
@@ -52,7 +51,7 @@ const workItems = [
     title: 'Junior Front Office Developer',
     subtitle: 'Saba Software · 01.2019 — 07.2020',
     description:
-      'Configured and styled recruitment platforms, integrated job applications using JavaScript and WordPress. Applied branding guidelines using CSS and Bootstrap for styling.',
+      "Configured the recruitment platform and delivered JavaScript based components. Integrated customers' job applications to web pages and WordPress CMS, configured and styled this according to branding guidelines.",
     techStack: ['JavaScript', 'CSS', 'HTML', 'Bootstrap', 'WordPress'],
     details: {
       location: 'Cracow, Poland',
@@ -64,7 +63,7 @@ const workItems = [
     title: 'Customer Service Representative',
     subtitle: 'Arvato Finance · 02.2017 — 08.2018',
     description:
-      'Providing high quality online customer service related to Google Ads, Google Analytics, Google Tag Manager. Planning and maintaining the team schedule to make sure the workflow is followed. Reporting the overall team performance on a daily basis and creating weekly reports',
+      'Provided high quality online customer service related to Google Ads, Google Analytics, Google Tag Manager. Planned and maintained the team schedule to make sure the workflow is followed. Reported the overall team performance on a daily basis and creating weekly reports',
     techStack: ['Google Ads', 'Google Analytics', 'Google Tag Manager'],
     details: {
       location: 'Cracow, Poland',
@@ -136,7 +135,14 @@ const Work = () => {
             </DialogTitle>
             <DialogContent className="work__dialog-content">
               <div className="work__dialog-left">
-                <p className="work__dialog-description">{selectedWork.description}</p>
+                <ul className="work__dialog-description">
+                  {selectedWork.description
+                    .split('. ')
+                    .filter((sentence) => sentence.trim() !== '')
+                    .map((sentence, index) => (
+                      <li key={index}>{sentence.trim().replace(/\.$/, '')}.</li>
+                    ))}
+                </ul>
               </div>
               <div className="work__dialog-right">
                 <span>

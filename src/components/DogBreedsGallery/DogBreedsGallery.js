@@ -32,9 +32,8 @@ const DogBreedsGallery = () => {
 
   return (
     <section className="breeds">
-      <h2 className={`breeds__heading ${loaded ? 'is-visible' : ''}`}>
-        Dog Breeds Carousel (REST call from api.thedogapi.com)
-      </h2>
+      <h2 className={`breeds__heading ${loaded ? 'is-visible' : ''}`}>Dog Breeds Carousel</h2>
+      <h3 className="breeds__subheading">REST call from api.thedogapi.com</h3>
 
       {loading ? (
         <div className="breeds__loader">
@@ -47,7 +46,7 @@ const DogBreedsGallery = () => {
           loop={true}
           cardsEffect={{
             perSlideOffset: 20,
-            perSlideRotate: 0,
+            perSlideRotate: 2,
             rotate: true,
             slideShadows: false,
           }}
@@ -59,12 +58,14 @@ const DogBreedsGallery = () => {
           {breeds.map((breed) => (
             <SwiperSlide key={breed.id}>
               <div className="breeds__card">
-                <img
-                  className={`breeds__image ${loaded ? 'breeds__image--visible' : ''}`}
-                  src={breed.image.url}
-                  alt={breed.name}
-                  onLoad={() => setLoaded(true)}
-                />
+                <figure className="breeds__image-container">
+                  <img
+                    className={`breeds__image ${loaded ? 'breeds__image--visible' : ''}`}
+                    src={breed.image.url}
+                    alt={breed.name}
+                    onLoad={() => setLoaded(true)}
+                  />
+                </figure>
                 <div className="breeds__content">
                   <h3 className="breeds__name">{breed.name}</h3>
                   <p className="breeds__info">
