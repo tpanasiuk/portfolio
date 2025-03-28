@@ -1,7 +1,7 @@
 {
   "name": "aironpage_react",
   "version": "0.1.0",
-  "homepage": "https://tpanasiuk.github.io/aironepage_react/",
+  "homepage": "https://tpanasiuk.github.io/portfolio/",
   "private": true,
   "overrides": {
     "sass-loader": "^13.3.2"

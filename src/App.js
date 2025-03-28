@@ -14,7 +14,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 const App = () => {
   return (
     <StyledEngineProvider injectFirst>
-      <Router basename={process.env.NODE_ENV === 'production' ? '/aironepage_react' : '/'}>
+      <Router basename={process.env.NODE_ENV === 'production' ? '/portfolio' : '/'}>
         <ScrollToTop />
         <Header />
         <main>
